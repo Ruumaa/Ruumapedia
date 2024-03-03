@@ -1,4 +1,5 @@
 import AddToBag from '@/app/components/AddToBag';
+import CheckoutNow from '@/app/components/CheckoutNow';
 import ImageGallery from '@/app/components/ImageGallery';
 import { SlugData } from '@/app/interface';
 import { getDataProduct } from '@/app/lib/fetch';
@@ -44,7 +45,7 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
               </div>
 
               <span className="text-sm text-gray-500">
-                Incl. Vat plus shipping
+                Incl. Tax plus shipping
               </span>
             </div>
 
@@ -64,7 +65,15 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
                 price_id={data.price_id}
               />
               {/* <Button>Add To Bag</Button> */}
-              <Button variant={'secondary'}>Checkout Now</Button>
+              <CheckoutNow
+                currency="IDR"
+                description={data.description}
+                image={data.images[0]}
+                name={data.name}
+                price={data.price}
+                key={data._id}
+                price_id={data.price_id}
+              />
             </div>
 
             <p className="mt-12 text-base text-gray-500 tracking-wide">
