@@ -10,7 +10,7 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
   //   console.log(params.slug);
   const data: SlugData = await getDataProduct(params.slug);
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       <div className="mx-auto max-w-scren-xl px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2">
           <ImageGallery images={data.images} />
@@ -61,6 +61,7 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
                 name={data.name}
                 price={data.price}
                 key={data._id}
+                price_id={data.price_id}
               />
               {/* <Button>Add To Bag</Button> */}
               <Button variant={'secondary'}>Checkout Now</Button>

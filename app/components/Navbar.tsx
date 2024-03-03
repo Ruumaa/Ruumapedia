@@ -1,5 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,11 +18,12 @@ const links = [
 export default function Navbar({}: Props) {
   //hook
   const pathname = usePathname();
-  const { handleCartClick } = useShoppingCart();
+  const { handleCartClick, cartDetails } = useShoppingCart();
+  let cartItems = Object.values(cartDetails ?? {}).length;
   return (
     <header className="mb-8 border-b">
       <div className="flex items-center justify-between mx-auto max-2-2xl px-4 sm:px-6 lg:max-w-7xl">
-        <Link href="">
+        <Link href="/">
           <h1 className="text-2xl md:text-4xl font-bold">
             Ruuma<span className="text-primary">pedia</span>
           </h1>
@@ -54,7 +56,20 @@ export default function Navbar({}: Props) {
             onClick={() => handleCartClick()}
             className="flex flex-col gap-y-1.5 h-12 w-12 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-none"
           >
-            <ShoppingBag />
+            <div className="relative">
+              <ShoppingBag />
+              {!cartItems ? (
+                ''
+              ) : (
+                <Badge
+                  variant="destructive"
+                  className="absolute -top-2 w-5 h-5 justify-center"
+                >
+                  {cartItems}
+                </Badge>
+              )}
+            </div>
+
             <span className="hidden sm:block font-semibold text-gray-500">
               Cart
             </span>

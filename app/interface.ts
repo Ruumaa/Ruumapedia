@@ -37,6 +37,7 @@ export interface SlugData {
   categoryName: string;
   _id: string;
   images: any;
+  price_id: string;
 }
 
 export interface ProductCart {
@@ -45,4 +46,5 @@ export interface ProductCart {
   currency: string;
   price: number;
   image: any;
+  price_id: string;
 }

@@ -1,11 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { imageGallery } from '../interface';
 import Image from 'next/image';
 import { urlFor } from '../lib/sanity';
 
-const MainImage = ({ images }: imageGallery) => {
+const MainImage = ({ images }: any) => {
   const [mainImage, setMainImage] = useState(images[0]);
   const handleSmallImageClick = (image: any) => {
     setMainImage(image);

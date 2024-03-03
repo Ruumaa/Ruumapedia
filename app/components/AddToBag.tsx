@@ -10,6 +10,7 @@ const AddToBag = ({
   currency,
   price,
   image,
+  price_id,
 }: ProductCart) => {
   const { addItem, handleCartClick } = useShoppingCart();
   const product = {
@@ -18,7 +19,7 @@ const AddToBag = ({
     currency,
     price,
     image: urlFor(image).url(),
-    id: '123',
+    price_id,
   };
   return (
     <Button

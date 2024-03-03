@@ -37,8 +37,9 @@ export const getDataProduct = async (slug: string) => {
       name,
       description,
       "slug": slug.current,
-      "categoryName": category->category
-    
+      "categoryName": category->category,
+      price_id
+      
   }`;
   try {
     const dataProduct = await client.fetch(query);
