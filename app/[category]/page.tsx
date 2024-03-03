@@ -4,6 +4,8 @@ import { getProductsBycategory } from '../lib/fetch';
 import Link from 'next/link';
 import { rupiahDisplay } from '../lib/functions';
 
+export const dynamic = 'force-dynamic';
+
 const CategoryPage = async ({ params }: { params: { category: string } }) => {
   const data: SimplifiedProduct[] = await getProductsBycategory(
     params.category

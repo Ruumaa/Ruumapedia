@@ -7,6 +7,7 @@ import { rupiahDisplay } from '@/app/lib/functions';
 import { Button } from '@/components/ui/button';
 import { Star, Truck } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
 const ProductPage = async ({ params }: { params: { slug: string } }) => {
   //   console.log(params.slug);
   const data: SlugData = await getDataProduct(params.slug);
