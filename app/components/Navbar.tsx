@@ -18,7 +18,7 @@ const links = [
 
 export default function Navbar({}: Props) {
   const pathname = usePathname();
-  const { handleCartClick, cartDetails } = useShoppingCart();
+  const { handleCartClick, cartDetails, clearCart } = useShoppingCart();
   let cartItems = Object.values(cartDetails ?? {}).length;
   return (
     <header className="mb-8 border-b">
@@ -41,7 +41,7 @@ export default function Navbar({}: Props) {
               ) : (
                 <Link
                   href={link.href}
-                  className="text-gray-600 text-lg font-semibold transition duration-100 hover:text-primary cursor-pointer"
+                  className="text-gray-600 dark:text-white text-lg font-semibold transition duration-100 dark:hover:text-primary hover:text-primary cursor-pointer"
                 >
                   {link.name}
                 </Link>
@@ -50,32 +50,35 @@ export default function Navbar({}: Props) {
           ))}
         </nav>
 
-        <div className="flex divide-x border-r sm:border-l">
-          <Button
-            variant="outline"
-            onClick={() => handleCartClick()}
-            className="flex flex-col gap-y-1.5 h-12 w-12 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-none"
-          >
-            <div className="relative">
-              <ShoppingBag />
-              {!cartItems ? (
-                ''
-              ) : (
-                <Badge
-                  variant="destructive"
-                  className="absolute -top-2 w-5 h-5 justify-center"
-                >
-                  {cartItems}
-                </Badge>
-              )}
-            </div>
+        <div className="flex items-center">
+          <div className="flex divide-x border-r sm:border-l mr-5">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => handleCartClick()}
+              className="flex flex-col gap-y-1.5 h-12 w-12 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-none dark:hover:text-primary hover:text-primary"
+            >
+              <div className="relative">
+                <ShoppingBag />
+                {!cartItems ? (
+                  ''
+                ) : (
+                  <Badge
+                    variant="destructive"
+                    className="absolute -top-2 w-5 h-5 justify-center"
+                  >
+                    {cartItems}
+                  </Badge>
+                )}
+              </div>
 
-            <span className="hidden sm:block font-semibold text-gray-500">
-              Cart
-            </span>
-          </Button>
+              <span className="hidden sm:block font-semibold text-gray-500 dark:text-white">
+                Cart
+              </span>
+            </Button>
+          </div>
+          <ModeToggle />
         </div>
-        <ModeToggle />
       </div>
     </header>
   );

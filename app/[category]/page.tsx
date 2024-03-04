@@ -37,16 +37,16 @@ const CategoryPage = async ({ params }: { params: { category: string } }) => {
 
               <div className="flex mt-4 justify-between ">
                 <div>
-                  <h3 className="text-sm text-gray-700 dark:text-stone-300 hover:text-primary">
+                  <h3 className="text-sm text-gray-700 dark:text-stone-300 dark:hover:text-primary hover:text-primary">
                     <Link href={`/product/${product.slug}`}>
                       {product.name}
                     </Link>
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500 hover:text-primary">
+                  <p className="mt-1 text-sm text-gray-500">
                     {product.categoryName}
                   </p>
                 </div>
-                <p className="text-sm font-medium text-gray-900 dark:text-white hover:text-primary">
+                <p className="text-sm font-medium text-gray-900 dark:text-white">
                   {rupiahDisplay(product.price)}
                 </p>
               </div>

@@ -39,12 +39,12 @@ const Newest = async () => {
 
               <div className="flex mt-4 justify-between">
                 <div>
-                  <h3 className="text-sm text-gray-700 dark:text-white">
+                  <h3 className="text-sm text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary">
                     <Link href={`/product/${product.slug}`}>
                       {product.name}
                     </Link>
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-200">
+                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                     {product.categoryName}
                   </p>
                 </div>
