@@ -9,7 +9,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
       cartMode="client-only"
       stripe={process.env.NEXT_PUBLIC_STRIPE_KEY as string}
       cancelUrl="https://ruumapedia.vercel.app/stripe/error"
-      successUrl="http://localhost:3000/stripe/success"
+      successUrl="https://ruumapedia.vercel.app/stripe/success"
       currency="IDR"
       billingAddressCollection={false}
       shouldPersist={true}
