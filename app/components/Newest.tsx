@@ -9,10 +9,10 @@ const Newest = async () => {
   const data: SimplifiedProduct[] = await getDataProducts();
 
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-16 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div className="">
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-16 lg:max-w-7xl lg:px-8">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Our Newest Products
           </h2>
           <Link className="text-primary flex items-center gap-x-1" href="/all">
@@ -39,16 +39,16 @@ const Newest = async () => {
 
               <div className="flex mt-4 justify-between">
                 <div>
-                  <h3 className="text-sm text-gray-700">
+                  <h3 className="text-sm text-gray-700 dark:text-white">
                     <Link href={`/product/${product.slug}`}>
                       {product.name}
                     </Link>
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-200">
                     {product.categoryName}
                   </p>
                 </div>
-                <p className="text-sm font-medium text-gray-900">
+                <p className="text-sm font-medium text-gray-900 dark:text-white">
                   {rupiahDisplay(product.price)}
                 </p>
               </div>
@@ -59,6 +59,4 @@ const Newest = async () => {
     </div>
   );
 };
-
-export const dynamic = 'force-dynamic';
 export default Newest;

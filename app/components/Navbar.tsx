@@ -1,6 +1,7 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { ModeToggle } from './ToogleMode';
 import { ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -16,7 +17,6 @@ const links = [
 ];
 
 export default function Navbar({}: Props) {
-  //hook
   const pathname = usePathname();
   const { handleCartClick, cartDetails } = useShoppingCart();
   let cartItems = Object.values(cartDetails ?? {}).length;
@@ -75,6 +75,7 @@ export default function Navbar({}: Props) {
             </span>
           </Button>
         </div>
+        <ModeToggle />
       </div>
     </header>
   );

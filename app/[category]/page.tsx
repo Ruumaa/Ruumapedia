@@ -3,6 +3,7 @@ import { SimplifiedProduct } from '../interface';
 import { getProductsBycategory } from '../lib/fetch';
 import Link from 'next/link';
 import { rupiahDisplay } from '../lib/functions';
+import CategoriesSection from '../components/CategoriesSection';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,10 +12,11 @@ const CategoryPage = async ({ params }: { params: { category: string } }) => {
     params.category
   );
   return (
-    <div className="bg-white">
+    <div className="mb-10">
+      <CategoriesSection />
       <div className="mx-auto max-w-2xl px-4 sm:px-16 lg:max-w-7xl lg:px-8">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Our {params.category}&apos;s Products
           </h2>
         </div>
@@ -33,18 +35,18 @@ const CategoryPage = async ({ params }: { params: { category: string } }) => {
                 />
               </div>
 
-              <div className="flex mt-4 justify-between">
+              <div className="flex mt-4 justify-between ">
                 <div>
-                  <h3 className="text-sm text-gray-700">
+                  <h3 className="text-sm text-gray-700 dark:text-stone-300 hover:text-primary">
                     <Link href={`/product/${product.slug}`}>
                       {product.name}
                     </Link>
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-gray-500 hover:text-primary">
                     {product.categoryName}
                   </p>
                 </div>
-                <p className="text-sm font-medium text-gray-900">
+                <p className="text-sm font-medium text-gray-900 dark:text-white hover:text-primary">
                   {rupiahDisplay(product.price)}
                 </p>
               </div>

@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/button';
 import { Star, Truck } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
+
 const ProductPage = async ({ params }: { params: { slug: string } }) => {
-  //   console.log(params.slug);
   const data: SlugData = await getDataProduct(params.slug);
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen mb-10">
       <div className="mx-auto max-w-scren-xl px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2">
           <ImageGallery images={data.images} />
@@ -72,7 +72,6 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
                 image={data.images[0]}
                 name={data.name}
                 price={data.price}
-                key={data._id}
                 price_id={data.price_id}
               />
             </div>
