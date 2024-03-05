@@ -17,7 +17,9 @@ const CategoryPage = async ({ params }: { params: { category: string } }) => {
       <div className="mx-auto max-w-2xl px-4 sm:px-16 lg:max-w-7xl lg:px-8">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Our {params.category}&apos;s Products
+            {params.category == 'All'
+              ? 'Our Products for Everyone'
+              : `Our ${params.category}'s Products`}
           </h2>
         </div>
 

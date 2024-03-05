@@ -15,7 +15,7 @@ const Newest = async () => {
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Our Newest Products
           </h2>
-          <Link className="text-primary flex items-center gap-x-1" href="/all">
+          <Link className="text-primary flex items-center gap-x-1" href="/All">
             See All{' '}
             <span>
               <ArrowRight />

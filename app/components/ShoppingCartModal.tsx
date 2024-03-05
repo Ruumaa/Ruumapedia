@@ -10,6 +10,7 @@ import { useShoppingCart } from 'use-shopping-cart';
 import { rupiahDisplay } from '../lib/functions';
 import { Button } from '@/components/ui/button';
 import { clear } from 'console';
+import { Frown } from 'lucide-react';
 
 export default function ShoppingCartModal() {
   // handleCartClick to set shouldDisplayCart to true or false
@@ -23,7 +24,6 @@ export default function ShoppingCartModal() {
     redirectToCheckout,
     clearCart,
   } = useShoppingCart();
-  // console.log(Object.values(cartDetails ?? {}).length);
   const handleCheckoutClick = async (event: any) => {
     event.preventDefault();
     try {
@@ -46,9 +46,10 @@ export default function ShoppingCartModal() {
           <div className="mt-8 flex-1 overflow-y-auto">
             <ul className="-my-6 divide-y divide-gray-200">
               {cartCount === 0 ? (
-                <h1 className="py-6 md:text-2xl">
-                  You don&apos;t have any items
-                </h1>
+                <div className="py-6 flex flex-col items-center justify-center gap-4 mt-28">
+                  <Frown className="text-primary w-10 h-10" />
+                  <h1 className="md:text-2xl">You don&apos;t have any items</h1>
+                </div>
               ) : (
                 <>
                   {Object.values(cartDetails ?? {}).map((entry) => (
