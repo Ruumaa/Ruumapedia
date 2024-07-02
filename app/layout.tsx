@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import CartProvider from './components/Providers';
 import ShoppingCartModal from './components/ShoppingCartModal';
 import { ThemeProvider } from './components/theme-provider';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
             <Navbar />
             <ShoppingCartModal />
             {children}
+            <Analytics />
           </CartProvider>
         </ThemeProvider>
       </body>
